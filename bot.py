@@ -1,4 +1,5 @@
 import discord
+import chromedriver_autoinstaller
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -7,10 +8,12 @@ import asyncio
 import re
 import os
 
-service = Service('C:\\Users\\Zanah\\Documents\\chromedriver-win64\\chromedriver.exe')
+chromedriver_autoinstaller.install()
+#service = Service('C:\\Users\\Zanah\\Documents\\chromedriver-win64\\chromedriver.exe')
 options = webdriver.ChromeOptions()
-options.binary_location = "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"  
-driver = webdriver.Chrome(service=service, options=options)
+options.binary_location = "/usr/bin/google-chrome"
+#options.binary_location = "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"  
+driver = webdriver.Chrome(options=options)
 
 driver.get("https://questlog.gg/throne-and-liberty/en/rain-schedule")
 
