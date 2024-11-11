@@ -10,7 +10,6 @@ import os
 service = Service('C:\\Users\\Zanah\\Documents\\chromedriver-win64\\chromedriver.exe')
 options = webdriver.ChromeOptions()
 options.binary_location = "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"  
-#options.add_argument('--headless')
 driver = webdriver.Chrome(service=service, options=options)
 
 driver.get("https://questlog.gg/throne-and-liberty/en/rain-schedule")
@@ -51,7 +50,7 @@ async def verificar_lluvia():
             if tiempo_restante <= timedelta(minutes=60):
                 canal = client.get_guild(GUILD_ID).get_channel(CHANNEL_ID)
                 if canal:
-                    await canal.send("¡Atención! 🌧️ La lluvia comenzará en menos de 60 minutos. ¡Prepárate!")
+                    await canal.send("¡Atención! 🌧️ La lluvia comenzará en menos de 60 minutos. ¡Prepárate el Santuario abrira sus puertas!")
                     print("Mensaje de alerta de lluvia enviado")
                 break
         else:
