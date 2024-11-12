@@ -1,5 +1,4 @@
 import discord
-import chromedriver_autoinstaller
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -8,10 +7,17 @@ import asyncio
 import re
 import os
 
-chromedriver_autoinstaller.install()
-#service = Service('C:\\Users\\Zanah\\Documents\\chromedriver-win64\\chromedriver.exe')
 options = webdriver.ChromeOptions()
-options.binary_location = "/usr/bin/google-chrome"
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage')
+options.add_argument('--disable-gpu')
+options.add_argument('--window-size=1920,1080')
+options.add_argument('--disable-blink-features=AutomationControlled')
+options.add_argument('--disable-infobars')
+options.add_experimental_option("excludeSwitches", ["enable-automation"])
+options.add_experimental_option("useAutomationExtension", False)
+
+#service = Service('C:\\Users\\Zanah\\Documents\\chromedriver-win64\\chromedriver.exe')
 #options.binary_location = "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"  
 driver = webdriver.Chrome(options=options)
 
